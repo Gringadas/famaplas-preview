@@ -21,6 +21,7 @@ As URLs antigas (`/pedestal-para-piso-elevado.html` etc.) têm redirect 301 para
 | Blocos abaixo da dobra | entrada leve na rolagem | orientação de leitura | web-lab `reveal-on-scroll` |
 | Cards de produto | inclinação 4° no hover (só mouse) | feedback de que o card é clicável | web-lab `image-tilt` |
 | Home, "Anatomia" (desenho técnico com cotas e chamadas numeradas) | pedestal se monta peça a peça com a rolagem (seção presa no desktop) | explicar como as peças se combinam | GSAP + ScrollTrigger (`site/js/`) |
+| Home, entrada | linhas do título sobem de uma máscara, texto e botões entram em sequência, foto do hero assenta (sem sumir) e as etiquetas aparecem | conduzir o olhar na ordem da mensagem, ~1,1 s, sem loop | GSAP + SplitText (`site/js/home-intro.js`) |
 | Barra ABNT x Famaplás | barras enchem ao entrar na tela | mostrar a margem de 15% sobre a norma | CSS |
 
 Reduced motion desliga tudo; sem JS o pedestal aparece montado e todo o texto fica visível.
@@ -37,7 +38,8 @@ Reduced motion desliga tudo; sem JS o pedestal aparece montado e todo o texto fi
 8. **Calculadora** (`site/js/calculadora.js`): pedestais = (colunas + 1) × (linhas + 1) numa grade de 600 × 600 mm; só com a área, 1 por placa + 15% de borda. Composição por faixa de altura (até 15 cm, 15 a 40 cm com prolongador, 40 cm ou mais com tubo). Validar a conta e as faixas com a equipe técnica.
 9. **Perguntas frequentes**: respostas montadas só com dados do site atual. Confirmar a resposta sobre venda de peças avulsas para reposição.
 10. **Norma ABNT pelo número e CNPJ no rodapé**: o site atual não informa nenhum dos dois. Pedir ao cliente.
-11. Newsletter do site antigo foi retirada (não havia destino configurado aparente).
+11. **Widget de WhatsApp** (`site/js/wa-widget.js`): todos os botões de WhatsApp abrem a pré-qualificação (nome, WhatsApp, empresa, interesse, perfil, tamanho da área ou quantidade de alças, prazo) e mandam a mensagem pronta para (11) 98983-3238. Nas páginas de produto o interesse já vem preenchido. Dispara `wa_widget_open` e `generate_lead` (com nome e telefone, no mesmo padrão dos outros sites) no dataLayer. Validar as perguntas com o comercial.
+12. Newsletter do site antigo foi retirada (não havia destino configurado aparente).
 
 ## Fontes
 
