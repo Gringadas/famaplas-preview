@@ -21,6 +21,7 @@ As URLs antigas (`/pedestal-para-piso-elevado.html` etc.) têm redirect 301 para
 | Blocos abaixo da dobra | entrada leve na rolagem | orientação de leitura | web-lab `reveal-on-scroll` |
 | Cards de produto | inclinação 4° no hover (só mouse) | feedback de que o card é clicável | web-lab `image-tilt` |
 | Home, "Anatomia" (desenho técnico com cotas e chamadas numeradas) | pedestal se monta peça a peça com a rolagem (seção presa no desktop) | explicar como as peças se combinam | GSAP + ScrollTrigger (`site/js/`) |
+| Home, abertura (só na 1ª visita) | piso elevado se monta em isométrico: contrapiso, pedestais sobem, placas caem, a última encaixa em laranja, logo, e a tela sobe | apresentar o produto antes da página, ~2,6 s, com "Pular abertura" (clique, Esc, Enter) | GSAP (`site/js/intro.js`); para rever, apagar `fp-intro` do localStorage |
 | Home, entrada | linhas do título sobem de uma máscara, texto e botões entram em sequência, foto do hero assenta (sem sumir) e as etiquetas aparecem | conduzir o olhar na ordem da mensagem, ~1,1 s, sem loop | GSAP + SplitText (`site/js/home-intro.js`) |
 | Barra ABNT x Famaplás | barras enchem ao entrar na tela | mostrar a margem de 15% sobre a norma | CSS |
 

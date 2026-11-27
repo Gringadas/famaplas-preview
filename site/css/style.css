@@ -676,3 +676,42 @@ p { margin: 0 0 1em; }
 
 /* intro da home: linhas do título (SplitText cria as máscaras) */
 .h1-line { padding-bottom: .06em; margin-bottom: -.06em; }
+
+/* =================== abertura: piso elevado montando =================== */
+/* fp-intro-on só existe se o script do <head> decidiu mostrar a abertura (JS + primeira visita + sem reduced motion) */
+html.fp-intro-on { overflow: hidden; }
+html.fp-intro-on body::before { content: ""; position: fixed; inset: 0; z-index: 200; background: var(--graphite); }
+.fp-intro {
+  position: fixed; inset: 0; z-index: 201; background: var(--graphite); color: #fff; cursor: pointer;
+  display: grid; place-items: center; overflow: hidden;
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.fp-intro-stage { width: min(560px, 86vw); translate: 0 -6vh; }
+.fp-intro-svg { width: 100%; height: auto; overflow: visible; }
+.fpi-ground line { stroke: #4a4d53; stroke-width: 1; stroke-dasharray: 3 4; }
+.fpi-foot { fill: #0e0f11; }
+.fpi-body { fill: #34373c; }
+.fpi-cap { fill: #5a5e65; }
+.fpi-top { fill: #EEEAE3; stroke: #d4cdc1; stroke-width: .8; transition: fill .3s, stroke .3s; }
+.fpi-top-on { fill: #F6E3D1; stroke: var(--orange); stroke-width: 2.4; }
+.fpi-side-l { fill: #cfc8bc; }
+.fpi-side-r { fill: #b3ab9e; }
+.fp-intro-brand { position: absolute; left: 50%; bottom: 14vh; translate: -50% 0; display: grid; justify-items: center; gap: 6px; }
+.fp-intro-brand svg { width: 64px; height: 39px; fill: var(--orange); margin-bottom: 8px; }
+.fp-intro-name { font-size: 1.9rem; font-weight: 500; font-stretch: 105%; letter-spacing: -.01em; }
+.fp-intro-tag { font: 500 .7rem var(--f-mono); letter-spacing: .22em; text-transform: uppercase; color: var(--orange); }
+.fp-intro-cap { position: absolute; left: 50%; bottom: 14vh; translate: -50% 0; margin: 0; display: flex; gap: 22px; font: 500 .72rem var(--f-mono); letter-spacing: .18em; text-transform: uppercase; color: #C3C6CB; }
+.fp-intro-cap span { opacity: 0; }
+.fp-intro-skip {
+  position: absolute; right: 24px; bottom: 24px; background: none; border: 1px solid rgba(255,255,255,.25); color: #C3C6CB;
+  font: 500 .72rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; padding: 10px 14px; cursor: pointer;
+}
+.fp-intro-skip:hover { color: #fff; border-color: #fff; }
+@media (max-width: 640px) {
+  .fp-intro-stage { width: 92vw; }
+  .fp-intro-cap { gap: 14px; font-size: .64rem; }
+  .fp-intro-brand, .fp-intro-cap { bottom: 18vh; }
+}
+@media (prefers-reduced-motion: reduce) { .fp-intro { display: none; } }
+html.fp-intro-lock { overflow: hidden; }

@@ -21,7 +21,14 @@
     var nums = hero.querySelectorAll('.numbers li');
     var split = null;
 
-    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    // se a abertura do piso estiver rodando, o hero espera a tela subir
+    var wait = !!window.FP_INTRO;
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' }, paused: wait });
+    if (wait) {
+      var go = function () { tl.play(); };
+      window.addEventListener('fp:reveal', go, { once: true });
+      setTimeout(go, 4000);
+    }
 
     // título: linhas sobem de dentro de uma máscara (o texto não muda de opacidade)
     if (window.SplitText && h1) {

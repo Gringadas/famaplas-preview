@@ -639,10 +639,13 @@ def build_home():
 {faq_block("O que mais perguntam para a gente.", "sec sec-paper")}
 {cta_band("Mande a planta. A gente indica o pedestal.", "Informe a área, a altura acabada do piso e o tipo de ambiente. A equipe técnica responde com a composição ideal e o orçamento.", "Olá! Vim pelo site da Famaplás e quero um orçamento de piso elevado.", "home")}
 """
-    extra_js = '<script src="/js/gsap.min.js" defer></script><script src="/js/ScrollTrigger.min.js" defer></script><script src="/js/SplitText.min.js" defer></script><script src="/js/home-intro.js" defer></script><script src="/js/anatomia.js" defer></script>'
+    intro_head = ("<script>(function(){try{if(matchMedia('(prefers-reduced-motion: reduce)').matches||localStorage.getItem('fp-intro'))return;"
+                  "var d=document.documentElement;d.classList.add('fp-intro-on');window.FP_INTRO=1;"
+                  "setTimeout(function(){d.classList.remove('fp-intro-on')},3500)}catch(e){}})();</script>")
+    extra_js = '<script src="/js/gsap.min.js" defer></script><script src="/js/intro.js" defer></script><script src="/js/ScrollTrigger.min.js" defer></script><script src="/js/SplitText.min.js" defer></script><script src="/js/home-intro.js" defer></script><script src="/js/anatomia.js" defer></script>'
     return page("/", "Famaplás | Pedestais para piso elevado e piso elevado completo",
                 "Fabricante de pedestais para piso elevado em São Paulo desde 2003. Certificação ABNT, 20.740 N de resistência, altura de 6 a 180 cm. Peça seu orçamento.",
-                body, "/", extra_js=extra_js, jsonld=[ORG_LD, FAQ_LD])
+                body, "/", extra_head=intro_head, extra_js=extra_js, jsonld=[ORG_LD, FAQ_LD])
 
 
 def build_sobre():
