@@ -1,0 +1,40 @@
+/* [data-reveal] sozinho não esconde nada. As classes abaixo só existem depois que o
+   JS confirmou que vai animar, e só em elementos ainda abaixo da tela. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .reveal-pending {
+    opacity: 0;
+    translate: 0 var(--reveal-distance, 24px);
+  }
+
+  .reveal-in {
+    transition:
+      opacity var(--duration, 600ms) var(--ease, ease),
+      translate var(--duration, 600ms) var(--ease, ease);
+  }
+
+  @supports (animation-timeline: view()) and (animation-range: entry) {
+    .reveal-native {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      /* Dentro do trecho "entry", que sempre se completa, mesmo no fim da página. */
+      animation-range: entry 0% entry min(100%, var(--reveal-range, 240px));
+    }
+  }
+
+  /* Quem chega por teclado ou por âncora vê o conteúdo na hora. */
+  .reveal-pending:focus-within,
+  .reveal-native:focus-within,
+  .reveal-pending:target,
+  .reveal-native:target {
+    animation: none;
+    opacity: 1;
+    translate: none;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: 0 var(--reveal-distance, 24px);
+  }
+}

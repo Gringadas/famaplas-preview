@@ -1,0 +1,61 @@
+/* Inclua em TODAS as páginas do site: as duas pontas precisam aceitar a transição. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* Libera cliques em elementos fora da captura. O que está capturado (a página, por padrão)
+   só volta a receber cliques no fim da animação: é regra do navegador. */
+::view-transition {
+  pointer-events: none;
+}
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: var(--pt-duration, var(--duration, 300ms));
+}
+
+::view-transition-group(*) {
+  animation-timing-function: var(--ease, ease);
+}
+
+/* Deslocamento só quando o JS informou a direção. Sem JS sobra o crossfade nativo. */
+:root:active-view-transition-type(forward, back)::view-transition-old(root),
+:root:active-view-transition-type(forward, back)::view-transition-new(root) {
+  mix-blend-mode: plus-lighter;
+}
+
+:root:active-view-transition-type(forward, back)::view-transition-old(root) {
+  animation:
+    var(--pt-duration, var(--duration, 300ms)) linear both pt-fade-out,
+    var(--pt-duration, var(--duration, 300ms)) var(--ease, ease) both pt-shift-out;
+}
+
+:root:active-view-transition-type(forward, back)::view-transition-new(root) {
+  animation:
+    var(--pt-duration, var(--duration, 300ms)) linear both pt-fade-in,
+    var(--pt-duration, var(--duration, 300ms)) var(--ease, ease) both pt-shift-in;
+}
+
+:root:active-view-transition-type(forward) {
+  --pt-dir: 1;
+}
+
+:root:active-view-transition-type(back) {
+  --pt-dir: -1;
+}
+
+@keyframes pt-fade-out { to { opacity: 0; } }
+@keyframes pt-fade-in { from { opacity: 0; } }
+@keyframes pt-shift-out { to { translate: calc(var(--pt-shift, 16px) * var(--pt-dir, 1) * -1) 0; } }
+@keyframes pt-shift-in { from { translate: calc(var(--pt-shift, 16px) * var(--pt-dir, 1)) 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

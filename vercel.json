@@ -1,0 +1,82 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": "site",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/pedestal-para-piso-elevado.html",
+      "destination": "/produtos/pedestal-para-piso-elevado",
+      "permanent": true
+    },
+    {
+      "source": "/apoio-da-placa-piso-elevado.html",
+      "destination": "/produtos/apoio-da-placa",
+      "permanent": true
+    },
+    {
+      "source": "/porca-niveladora-para-piso-elevado.html",
+      "destination": "/produtos/porca-niveladora",
+      "permanent": true
+    },
+    {
+      "source": "/base-para-pedestal-de-piso-elevado.html",
+      "destination": "/produtos/base-para-pedestal",
+      "permanent": true
+    },
+    {
+      "source": "/prolongador-para-pedestal-de-piso-elevado.html",
+      "destination": "/produtos/prolongador",
+      "permanent": true
+    },
+    {
+      "source": "/tubo-de-acoplamento-de-pedestal-para-piso-elevado.html",
+      "destination": "/produtos/tubo-de-acoplamento",
+      "permanent": true
+    },
+    {
+      "source": "/porca-base-pedestal-para-piso-elevado.html",
+      "destination": "/produtos/porca-base",
+      "permanent": true
+    },
+    {
+      "source": "/piso-elevado-completo.html",
+      "destination": "/produtos/piso-elevado-completo",
+      "permanent": true
+    },
+    {
+      "source": "/alcas-plasticas.html",
+      "destination": "/produtos/alcas-plasticas",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sobre-nos-famaplas.html",
+      "destination": "/sobre",
+      "permanent": true
+    },
+    {
+      "source": "/contato.html",
+      "destination": "/contato",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ]
+}
