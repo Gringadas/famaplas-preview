@@ -8,63 +8,53 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/pedestal-para-piso-elevado.html",
+      "source": "/pedestal-para-piso-elevado",
       "destination": "/produtos/pedestal-para-piso-elevado",
       "permanent": true
     },
     {
-      "source": "/apoio-da-placa-piso-elevado.html",
+      "source": "/apoio-da-placa-piso-elevado",
       "destination": "/produtos/apoio-da-placa",
       "permanent": true
     },
     {
-      "source": "/porca-niveladora-para-piso-elevado.html",
+      "source": "/porca-niveladora-para-piso-elevado",
       "destination": "/produtos/porca-niveladora",
       "permanent": true
     },
     {
-      "source": "/base-para-pedestal-de-piso-elevado.html",
+      "source": "/base-para-pedestal-de-piso-elevado",
       "destination": "/produtos/base-para-pedestal",
       "permanent": true
     },
     {
-      "source": "/prolongador-para-pedestal-de-piso-elevado.html",
+      "source": "/prolongador-para-pedestal-de-piso-elevado",
       "destination": "/produtos/prolongador",
       "permanent": true
     },
     {
-      "source": "/tubo-de-acoplamento-de-pedestal-para-piso-elevado.html",
+      "source": "/tubo-de-acoplamento-de-pedestal-para-piso-elevado",
       "destination": "/produtos/tubo-de-acoplamento",
       "permanent": true
     },
     {
-      "source": "/porca-base-pedestal-para-piso-elevado.html",
+      "source": "/porca-base-pedestal-para-piso-elevado",
       "destination": "/produtos/porca-base",
       "permanent": true
     },
     {
-      "source": "/piso-elevado-completo.html",
+      "source": "/piso-elevado-completo",
       "destination": "/produtos/piso-elevado-completo",
       "permanent": true
     },
     {
-      "source": "/alcas-plasticas.html",
+      "source": "/alcas-plasticas",
       "destination": "/produtos/alcas-plasticas",
       "permanent": true
     },
     {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/sobre-nos-famaplas.html",
+      "source": "/sobre-nos-famaplas",
       "destination": "/sobre",
-      "permanent": true
-    },
-    {
-      "source": "/contato.html",
-      "destination": "/contato",
       "permanent": true
     }
   ],

@@ -980,10 +980,9 @@ if __name__ == "__main__":
         (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n", encoding="utf-8")
     urls = "".join(f"<url><loc>{DOMAIN}{u if u != '/' else '/'}</loc></url>" for u in pages)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>', encoding="utf-8")
-    redirects = [{"source": f"/{p['old']}", "destination": f"/produtos/{p['slug']}", "permanent": True} for p in PRODUTOS]
-    redirects += [{"source": "/index.html", "destination": "/", "permanent": True},
-                  {"source": "/sobre-nos-famaplas.html", "destination": "/sobre", "permanent": True},
-                  {"source": "/contato.html", "destination": "/contato", "permanent": True}]
+    # cleanUrls tira o .html antes dos redirects, então a origem vai sem extensão
+    old = [(p["old"][:-5], f"/produtos/{p['slug']}") for p in PRODUTOS] + [("sobre-nos-famaplas", "/sobre")]
+    redirects = [{"source": f"/{o}", "destination": d, "permanent": True} for o, d in old]
     vercel = {"$schema": "https://openapi.vercel.sh/vercel.json", "framework": None, "buildCommand": None, "installCommand": None,
               "outputDirectory": "site", "cleanUrls": True, "trailingSlash": False, "redirects": redirects}
     if PREVIEW:
